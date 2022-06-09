@@ -1,11 +1,11 @@
 version: "3.2"
 
 services:
-  base-api:
-    image: base-api
+  open-search-example:
+    image: open-search-example
     build:
      context: .
-     dockerfile: BaseApi/Dockerfile
+     dockerfile: open_search_example/Dockerfile
      args:
      - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
     ports:
@@ -27,11 +27,11 @@ services:
     volumes:
       - ./database:/docker-entrypoint-initdb.d
 
-  base-api-test:
-    image: base-api-test
+  open-search-example-test:
+    image: open-search-example-test
     build:
       context: .
-      dockerfile: BaseApi.Tests/Dockerfile
+      dockerfile: open_search_example.Tests/Dockerfile
       args:
       - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
     environment:
